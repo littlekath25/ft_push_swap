@@ -1,32 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_memcpy.c                                        :+:    :+:            */
+/*   error.c                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/29 16:41:44 by kfu           #+#    #+#                 */
-/*   Updated: 2021/05/23 17:07:06 by kfu           ########   odam.nl         */
+/*   Created: 2021/05/23 16:00:58 by kfu           #+#    #+#                 */
+/*   Updated: 2021/05/23 16:07:18 by kfu           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "push_swap.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t len)
+void		error_and_exit(void)
 {
-	unsigned char		*d;
-	const unsigned char	*s;
-	size_t				i;
-
-	d = dest;
-	s = src;
-	i = 0;
-	if (!dest && !src)
-		return (NULL);
-	while (i < len)
-	{
-		d[i] = s[i];
-		i++;
-	}
-	return (dest);
+	write(2, "Error\n", 6);
+	exit(0);
 }

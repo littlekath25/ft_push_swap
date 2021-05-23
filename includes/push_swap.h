@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_memcpy.c                                        :+:    :+:            */
+/*   push_swap.h                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/10/29 16:41:44 by kfu           #+#    #+#                 */
-/*   Updated: 2021/05/23 17:07:06 by kfu           ########   odam.nl         */
+/*   Created: 2021/05/23 16:01:19 by kfu           #+#    #+#                 */
+/*   Updated: 2021/05/23 17:12:22 by kfu           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-void	*ft_memcpy(void *dest, const void *src, size_t len)
-{
-	unsigned char		*d;
-	const unsigned char	*s;
-	size_t				i;
+# include <unistd.h>
+# include <stdlib.h>
+# include "../libft/libft.h"
 
-	d = dest;
-	s = src;
-	i = 0;
-	if (!dest && !src)
-		return (NULL);
-	while (i < len)
-	{
-		d[i] = s[i];
-		i++;
-	}
-	return (dest);
-}
+/* UTILS */
+void	error_and_exit(void);
+int		*input_checker_parser(int argc, char **argv);
+
+#endif
