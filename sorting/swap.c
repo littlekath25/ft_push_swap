@@ -1,25 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   push_swap.h                                        :+:    :+:            */
+/*   operations.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/05/23 16:01:19 by kfu           #+#    #+#                 */
-/*   Updated: 2021/05/23 18:56:42 by kfu           ########   odam.nl         */
+/*   Created: 2021/05/23 18:52:14 by kfu           #+#    #+#                 */
+/*   Updated: 2021/05/23 18:53:54 by kfu           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-# include <unistd.h>
-# include <stdlib.h>
-# include <limits.h>
-# include "../libft/libft.h"
-
-/* UTILS */
-void	error_and_exit(void);
-int		*input_checker_parser(int argc, char **argv);
-
-#endif
+#include "push_swap.h"

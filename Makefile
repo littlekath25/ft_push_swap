@@ -6,7 +6,7 @@
 #    By: kfu <kfu@student.codam.nl>                   +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/14 23:09:58 by kfu           #+#    #+#                  #
-#    Updated: 2021/05/23 16:13:35 by kfu           ########   odam.nl          #
+#    Updated: 2021/05/23 18:55:58 by kfu           ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,11 +15,16 @@ CC		= 	gcc
 RM		=	rm -f
 #CFLAGS	= 	-Wall -Wextra -Werror
 
-P_SRC	= 	main.c
+P_SRC	= 	sort.c\
+			swap.c\
+			push.c\
+			rotate.c\
+			rev_rotate.c
 P_PATH	=	sorting/
 P_OBJ	=	$(P_SRC:%.c=$(P_PATH)%.o)
 
-U_SRC	= 	error.c		input_checker.c
+U_SRC	= 	error.c\
+			input_checker.c
 U_PATH	=	utils/
 U_OBJ	=	$(U_SRC:%.c=$(U_PATH)%.o)
 
