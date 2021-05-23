@@ -6,13 +6,32 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 16:11:43 by kfu           #+#    #+#                 */
-/*   Updated: 2021/05/23 17:31:32 by kfu           ########   odam.nl         */
+/*   Updated: 2021/05/23 18:50:21 by kfu           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdio.h>
 #include <limits.h>
+
+static void		check_duplicates(int *stack)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (stack[i])
+	{
+		j = 0;
+		while(stack[j])
+		{
+			if (stack[i] == stack[j] && i != j)
+				error_and_exit();
+			j++;
+		}
+		i++;
+	}
+}
 
 static int		*fill_stack(int *dest, double *src, int len)
 {
@@ -68,5 +87,6 @@ int		*input_checker_parser(int argc, char **argv)
 	}
 	stack_a = (int *)ft_calloc(argc, sizeof(int));
 	stack_a = fill_stack(stack_a, digits, (argc - 1));
+	check_duplicates(stack_a);
 	return (stack_a);
 }
