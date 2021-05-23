@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 16:11:43 by kfu           #+#    #+#                 */
-/*   Updated: 2021/05/23 19:03:54 by kfu           ########   odam.nl         */
+/*   Updated: 2021/05/23 19:39:56 by kfu           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int		*fill_stack(int *dest, double *src, int len)
 	return (dest);
 }
 
-static void		is_all_digits(char *argv)
+static void	is_all_digits(char *argv)
 {
 	int i;
 
@@ -65,12 +65,11 @@ static void		is_all_digits(char *argv)
 	return ;
 }
 
-int		*input_checker_parser(int argc, char **argv)
+void	input_checker_parser(int argc, char **argv, t_game *game)
 {
 	int		i;
 	int		j;
-	int		*stack_a;
-	double 	digits[argc - 1];
+	double 	digits[argc];
 
 	i = 1;
 	j = 0;
@@ -83,8 +82,7 @@ int		*input_checker_parser(int argc, char **argv)
 		i++;
 		j++;
 	}
-	stack_a = (int *)ft_calloc(argc, sizeof(int));
-	stack_a = fill_stack(stack_a, digits, (argc - 1));
-	check_duplicates(stack_a, argc - 1);
-	return (stack_a);
+	game->stack_a = (int *)ft_calloc(argc, sizeof(int));
+	game->stack_a = fill_stack(game->stack_a, digits, game->size);
+	check_duplicates(game->stack_a, game->size);
 }

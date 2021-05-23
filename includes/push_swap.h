@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 16:01:19 by kfu           #+#    #+#                 */
-/*   Updated: 2021/05/23 19:11:37 by kfu           ########   odam.nl         */
+/*   Updated: 2021/05/23 19:36:32 by kfu           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@
 # include <stdlib.h>
 # include <limits.h>
 # include "../libft/libft.h"
+# include "info.h"
 
 /* UTILS */
 void	error_and_exit(void);
-int		*input_checker_parser(int argc, char **argv);
+void	input_checker_parser(int argc, char **argv, t_game *game);
 
 /* OPERATIONS */
 void	swap(int *stack);
