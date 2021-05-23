@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 15:52:36 by kfu           #+#    #+#                 */
-/*   Updated: 2021/05/23 18:56:24 by kfu           ########   odam.nl         */
+/*   Updated: 2021/05/23 19:05:46 by kfu           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ int		main(int argc, char **argv)
 {
 	int	*stack_a;
 	int	*stack_b;
+	int i;
 
+	i = 0;
 	if (argc > 1)
 	{
 		stack_a = input_checker_parser(argc, argv);

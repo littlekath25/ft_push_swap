@@ -6,12 +6,11 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 16:11:43 by kfu           #+#    #+#                 */
-/*   Updated: 2021/05/23 19:03:21 by kfu           ########   odam.nl         */
+/*   Updated: 2021/05/23 19:03:54 by kfu           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 static void		check_duplicates(int *stack, int len)
 {
