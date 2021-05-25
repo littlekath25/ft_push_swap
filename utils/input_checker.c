@@ -6,13 +6,25 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 16:11:43 by kfu           #+#    #+#                 */
-/*   Updated: 2021/05/23 19:39:56 by kfu           ########   odam.nl         */
+/*   Updated: 2021/05/25 21:59:22 by kfu           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void		check_duplicates(int *stack, int len)
+void			init_stack(double *digits, t_game *game)
+{
+	int i;
+
+	i = 0;
+	while (i < game->size)
+	{
+		node_addback(&game->stack_a, new_node(digits[i]), game);
+		i++;
+	}
+}
+
+static void		check_duplicates(double *stack, int len)
 {
 	int i;
 	int j;
@@ -29,19 +41,6 @@ static void		check_duplicates(int *stack, int len)
 		}
 		i++;
 	}
-}
-
-static int		*fill_stack(int *dest, double *src, int len)
-{
-	int i;
-
-	i = 0;
-	while (i < len)
-	{
-		dest[i] = (int)src[i];
-		i++;
-	}
-	return (dest);
 }
 
 static void	is_all_digits(char *argv)
@@ -65,11 +64,11 @@ static void	is_all_digits(char *argv)
 	return ;
 }
 
-void	input_checker_parser(int argc, char **argv, t_game *game)
+void	parse_and_check(char **argv, t_game *game)
 {
 	int		i;
 	int		j;
-	double 	digits[argc];
+	double 	digits[game->size];
 
 	i = 1;
 	j = 0;
@@ -82,7 +81,6 @@ void	input_checker_parser(int argc, char **argv, t_game *game)
 		i++;
 		j++;
 	}
-	game->stack_a = (int *)ft_calloc(argc, sizeof(int));
-	game->stack_a = fill_stack(game->stack_a, digits, game->size);
-	check_duplicates(game->stack_a, game->size);
+	check_duplicates(digits, game->size);
+	init_stack(digits, game);
 }
