@@ -6,31 +6,31 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 16:11:43 by kfu           #+#    #+#                 */
-/*   Updated: 2021/05/25 21:59:22 by kfu           ########   odam.nl         */
+/*   Updated: 2021/05/26 11:53:47 by kfu           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void			init_stack(double *digits, t_game *game)
+void	init_stack(double *digits, t_game *game)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while (i < game->size)
+	while (i < game->size_a)
 	{
 		node_addback(&game->stack_a, new_node(digits[i]), game);
 		i++;
 	}
 }
 
-static void		check_duplicates(double *stack, int len)
+static void	check_duplicates(double *stack, int len)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
-	while(i < len)
+	while (i < len)
 	{
 		j = 0;
 		while (j < len)
@@ -45,7 +45,7 @@ static void		check_duplicates(double *stack, int len)
 
 static void	is_all_digits(char *argv)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (argv[i])
@@ -55,7 +55,7 @@ static void	is_all_digits(char *argv)
 			if (i == 0 && argv[i] == '-' && ft_isdigit(argv[1]))
 			{
 				i++;
-				continue;
+				continue ;
 			}
 			error_and_exit();
 		}
@@ -68,7 +68,7 @@ void	parse_and_check(char **argv, t_game *game)
 {
 	int		i;
 	int		j;
-	double 	digits[game->size];
+	double	digits[game->size_a];
 
 	i = 1;
 	j = 0;
@@ -81,6 +81,6 @@ void	parse_and_check(char **argv, t_game *game)
 		i++;
 		j++;
 	}
-	check_duplicates(digits, game->size);
+	check_duplicates(digits, game->size_a);
 	init_stack(digits, game);
 }

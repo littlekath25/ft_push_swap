@@ -6,13 +6,13 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 16:00:58 by kfu           #+#    #+#                 */
-/*   Updated: 2021/05/23 16:07:18 by kfu           ########   odam.nl         */
+/*   Updated: 2021/05/26 11:17:25 by kfu           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void		error_and_exit(void)
+void	error_and_exit(void)
 {
 	write(2, "Error\n", 6);
 	exit(0);
