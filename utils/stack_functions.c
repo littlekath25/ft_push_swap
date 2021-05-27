@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/25 20:13:58 by kfu           #+#    #+#                 */
-/*   Updated: 2021/05/25 22:01:03 by kfu           ########   odam.nl         */
+/*   Updated: 2021/05/27 20:29:04 by kfu           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,5 @@ void	node_addback(t_stack **stack, t_stack *new, t_game *game)
 	}
 	else
 		*stack = new;
-	game->tail = new;
+	game->tail_a = new;
 }
