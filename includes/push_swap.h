@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 16:01:19 by kfu           #+#    #+#                 */
-/*   Updated: 2021/05/27 20:26:51 by kfu           ########   odam.nl         */
+/*   Updated: 2021/05/29 16:36:15 by kfu           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 typedef struct s_stack
 {
+	struct s_stack	*previous;
 	int				number;
 	struct s_stack	*next;
 }	t_stack;
@@ -30,8 +31,6 @@ typedef struct s_game
 	int		size_b;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	t_stack	*tail_a;
-	t_stack *tail_b;
 }	t_game;
 
 
@@ -43,8 +42,8 @@ t_stack	*new_node(int number);
 void	node_addback(t_stack **stack, t_stack *new, t_game *game);
 
 /* OPERATIONS */
-void	swap(t_stack *stack);
-void	push(t_stack **stack_1, t_stack **stack_2);
+void	swap(t_game *game, char c);
+void	push(t_game *game, char c);
 void	rotate(t_game *game, char c);
 // void	rev_rotate(t_stack *stack);
 

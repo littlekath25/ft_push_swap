@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/25 20:13:58 by kfu           #+#    #+#                 */
-/*   Updated: 2021/05/27 20:29:04 by kfu           ########   odam.nl         */
+/*   Updated: 2021/05/29 16:37:11 by kfu           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_stack	*new_node(int number)
 	if (new == NULL)
 		return (NULL);
 	new->number = number;
+	new->previous = NULL;
 	new->next = NULL;
 	return (new);
 }
@@ -34,8 +35,8 @@ void	node_addback(t_stack **stack, t_stack *new, t_game *game)
 		while (node->next != NULL)
 			node = node->next;
 		node->next = new;
+		new->previous = node;
 	}
 	else
 		*stack = new;
-	game->tail_a = new;
 }
