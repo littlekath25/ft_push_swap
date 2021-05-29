@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 16:01:19 by kfu           #+#    #+#                 */
-/*   Updated: 2021/05/29 16:36:15 by kfu           ########   odam.nl         */
+/*   Updated: 2021/05/29 19:05:34 by kfu           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include "../libft/libft.h"
+# include <stdio.h>
 
 typedef struct s_stack
 {
@@ -36,14 +37,15 @@ typedef struct s_game
 
 /* UTILS */
 void	error_and_exit(void);
+void	print_stack(t_stack *stack);
 
 /* STACK UTILS */
 t_stack	*new_node(int number);
 void	node_addback(t_stack **stack, t_stack *new, t_game *game);
 
 /* OPERATIONS */
-void	swap(t_game *game, char c);
-void	push(t_game *game, char c);
+void	swap(int *a, int *b);
+void	push(t_stack **src, t_stack **dest);
 void	rotate(t_game *game, char c);
 // void	rev_rotate(t_stack *stack);
 

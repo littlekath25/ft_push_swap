@@ -6,39 +6,48 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 18:52:14 by kfu           #+#    #+#                 */
-/*   Updated: 2021/05/29 16:30:54 by kfu           ########   odam.nl         */
+/*   Updated: 2021/05/29 19:24:19 by kfu           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-void	swap(t_game *game, char c)
+void	swap(int *a, int *b)
 {
-	t_stack *first;
-	t_stack *second;
+	int *tmp;
 
-	if (c == 'a' || c == 'b')
+	*tmp = *a;
+	*a = *b;
+	*b = *tmp;
+}
+
+void	push(t_stack **src, t_stack **dest)
+{
+	t_stack *tmp;
+
+	if (*src == NULL)
+		return ;
+	else if (*dest == NULL)
 	{
-		if (c == 'a')
-			first = game->stack_a;
-		if (c == 'b')
-			first = game->stack_b;
-		second = first->next;
-		first->previous = second;
-		first->next = first->next->next;
-		second->previous = NULL;
-		second->next = first;
-		game->stack_a = second;
+		*dest = *src;
+		*src = (*src)->next;
+		(*dest)->next = NULL;
+	}
+	else 
+	{
+		tmp = *dest;
+		*dest = *src;
+		*src = (*src)->next;
+		(*dest)->next = tmp;
 	}
 }
 
-void	push(t_game *game, char c)
-{
+// void	rotate(t_game *game, char c)
+// {
 	
-}
+// }
 
-void	rotate(t_game *game, char c)
-{
-
-}
+// void	rev_rotate(t_stack **stack)
+// {
+// 	t_stack *tail;
+// }
