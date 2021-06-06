@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   helpers.c                                          :+:    :+:            */
+/*   push.c                                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/05/29 17:15:12 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/03 14:09:43 by kfu           ########   odam.nl         */
+/*   Created: 2021/06/03 14:12:37 by kfu           #+#    #+#                 */
+/*   Updated: 2021/06/03 14:36:44 by kfu           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_stack(t_stack *stack, t_stack *tail)
+void	pa(t_game *game)
 {
-	t_stack *ptr;
+	ps_push(&game->stack_b, &game->tail_b, &game->stack_a, &game->tail_a);
+	game->size_a++;
+	game->size_b--;
+}
 
-	ptr = stack;
-	while (ptr)
-	{
-		if (ptr == tail)
-		{
-			printf("%i\n", ptr->number);
-			break;
-		}
-		printf("%i\n", ptr->number);
-		ptr = ptr->next;
-	}
+void	pb(t_game *game)
+{
+	ps_push(&game->stack_a, &game->tail_a, &game->stack_b, &game->tail_b);
+	game->size_b++;
+	game->size_a--;
 }

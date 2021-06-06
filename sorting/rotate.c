@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   helpers.c                                          :+:    :+:            */
+/*   rotate.c                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/05/29 17:15:12 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/03 14:09:43 by kfu           ########   odam.nl         */
+/*   Created: 2021/06/03 14:12:41 by kfu           #+#    #+#                 */
+/*   Updated: 2021/06/03 14:36:31 by kfu           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_stack(t_stack *stack, t_stack *tail)
+void	ra(t_game *game)
 {
-	t_stack *ptr;
+	ps_rotate(&game->stack_a, &game->tail_a);	
+}
 
-	ptr = stack;
-	while (ptr)
-	{
-		if (ptr == tail)
-		{
-			printf("%i\n", ptr->number);
-			break;
-		}
-		printf("%i\n", ptr->number);
-		ptr = ptr->next;
-	}
+void	rb(t_game *game)
+{
+	ps_rotate(&game->stack_b, &game->tail_b);	
+}
+
+void	rr(t_game *game)
+{
+	ps_rotate(&game->stack_a, &game->tail_a);
+	ps_rotate(&game->stack_b, &game->tail_b);
 }

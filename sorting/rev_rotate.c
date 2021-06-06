@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   sort.c                                             :+:    :+:            */
+/*   rev_rotate.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/05/23 15:52:36 by kfu           #+#    #+#                 */
-/*   Updated: 2021/05/29 19:37:57 by kfu           ########   odam.nl         */
+/*   Created: 2021/06/03 14:12:34 by kfu           #+#    #+#                 */
+/*   Updated: 2021/06/03 14:36:38 by kfu           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	init_game(t_game *game, int argc)
+void	rra(t_game *game)
 {
-	game->size_a = argc - 1;
-	game->size_b = 0;
-	game->stack_a = NULL;
-	game->stack_b = NULL;
+	ps_rev_rotate(&game->stack_a, &game->tail_a);
 }
 
-int		main(int argc, char **argv)
+void	rrb(t_game *game)
 {
-	t_game *game;
-	if (argc > 1)
-	{
-		game = (t_game *)ft_calloc(1, sizeof(t_game));
-		init_game(game, argc);
-		parse_and_check(argv, game);
-		print_stack(game->stack_a);
-		printf("\n");
-		print_stack(game->stack_b);
-		exit(0);
-	}
-	error_and_exit();
+	ps_rev_rotate(&game->stack_b, &game->tail_b);
+}
+
+void	rrr(t_game *game)
+{
+	ps_rev_rotate(&game->stack_a, &game->tail_a);
+	ps_rev_rotate(&game->stack_b, &game->tail_b);
 }
