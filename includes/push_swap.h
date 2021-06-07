@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 16:01:19 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/03 14:46:40 by kfu           ########   odam.nl         */
+/*   Updated: 2021/06/07 23:48:22 by kfu           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,9 @@ typedef struct s_game
 	int		size_b;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	t_stack *tail_a;
-	t_stack *tail_b;
+	t_stack	*tail_a;
+	t_stack	*tail_b;
 }	t_game;
-
 
 /* UTILS */
 void	error_and_exit(void);
@@ -42,7 +41,7 @@ void	print_stack(t_stack *stack, t_stack *tail);
 
 /* STACK UTILS */
 t_stack	*new_node(int number);
-void	*node_addback(t_stack **stack, t_stack *new, t_stack **tail);
+void	*node_addfront(t_stack **stack, t_stack *new, t_stack **tail);
 
 /* OPERATIONS */
 void	sa(t_game *game);

@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/29 17:15:12 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/03 14:09:43 by kfu           ########   odam.nl         */
+/*   Updated: 2021/06/07 23:41:11 by kfu           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	print_stack(t_stack *stack, t_stack *tail)
 {
-	t_stack *ptr;
+	t_stack	*ptr;
 
 	ptr = stack;
 	while (ptr)
@@ -22,7 +22,7 @@ void	print_stack(t_stack *stack, t_stack *tail)
 		if (ptr == tail)
 		{
 			printf("%i\n", ptr->number);
-			break;
+			break ;
 		}
 		printf("%i\n", ptr->number);
 		ptr = ptr->next;

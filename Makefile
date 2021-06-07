@@ -6,7 +6,7 @@
 #    By: kfu <kfu@student.codam.nl>                   +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/14 23:09:58 by kfu           #+#    #+#                  #
-#    Updated: 2021/06/03 14:12:17 by kfu           ########   odam.nl          #
+#    Updated: 2021/06/07 14:14:51 by kfu           ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,14 +15,18 @@ CC		= 	gcc
 RM		=	rm -f
 #CFLAGS	= 	-Wall -Wextra -Werror
 
-P_SRC	= 	push_swap.c\
-			actions.c\
-			swap.c\
+S_SRC	= 	push_swap.c\
+			combi.c
+S_PATH	=	src/
+S_OBJ	=	$(S_SRC:%.c=$(S_PATH)%.o)
+
+O_SRC	= 	actions.c\
 			push.c\
+			rev_rotate.c\
 			rotate.c\
-			rev_rotate.c
-P_PATH	=	sorting/
-P_OBJ	=	$(P_SRC:%.c=$(P_PATH)%.o)
+			swap.c
+O_PATH	=	src/operations/
+O_OBJ	=	$(O_SRC:%.c=$(O_PATH)%.o)
 
 U_SRC	= 	error.c\
 			input_checker.c\
@@ -31,7 +35,7 @@ U_SRC	= 	error.c\
 U_PATH	=	utils/
 U_OBJ	=	$(U_SRC:%.c=$(U_PATH)%.o)
 
-OBJ_FILES = $(P_OBJ) $(U_OBJ)
+OBJ_FILES = $(S_OBJ) $(O_OBJ) $(U_OBJ)
 
 all: $(NAME)
 

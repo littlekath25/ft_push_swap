@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   swap.c                                             :+:    :+:            */
+/*   rotate.c                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/06/03 14:12:59 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/03 14:49:02 by kfu           ########   odam.nl         */
+/*   Created: 2021/06/03 14:12:41 by kfu           #+#    #+#                 */
+/*   Updated: 2021/06/07 23:40:49 by kfu           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_game *game)
+void	ra(t_game *game)
 {
-	ps_swap(&game->stack_a->number, &game->stack_a->next->number);
+	ps_rotate(&game->stack_a, &game->tail_a);
+	write(1, "ra\n", 3);
 }
 
-void	sb(t_game *game)
+void	rb(t_game *game)
 {
-	ps_swap(&game->stack_b->number, &game->stack_b->next->number);
+	ps_rotate(&game->stack_b, &game->tail_b);
+	write(1, "rb\n", 3);
 }
 
-void	ss(t_game *game)
+void	rr(t_game *game)
 {
-	ps_swap(&game->stack_a->number, &game->stack_a->next->number);
-	ps_swap(&game->stack_b->number, &game->stack_b->next->number);
+	ps_rotate(&game->stack_a, &game->tail_a);
+	ps_rotate(&game->stack_b, &game->tail_b);
+	write(1, "rr\n", 3);
 }

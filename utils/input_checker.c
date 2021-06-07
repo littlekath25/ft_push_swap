@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 16:11:43 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/01 15:02:54 by kfu           ########   odam.nl         */
+/*   Updated: 2021/06/07 23:48:20 by kfu           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	init_stack(double *digits, t_game *game)
 	i = 0;
 	while (i < game->size_a)
 	{
-		node_addback(&game->stack_a, new_node(digits[i]), &game->tail_a);
+		node_addfront(&game->stack_a, new_node(digits[i]), &game->tail_a);
 		i++;
 	}
 }
