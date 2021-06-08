@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 15:52:36 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/07 23:46:20 by kfu           ########   odam.nl         */
+/*   Updated: 2021/06/08 19:32:44 by kfu           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,22 +49,23 @@ void	push_swap(t_game *game)
 			sa(game);
 	}
 	pb(game);
+	if (game->stack_a == NULL)
+		printf("done");
 }
 
 int	main(int argc, char **argv)
 {
 	t_game	*game;
 
-	if (argc > 1)
+	if (argc > 2)
 	{
 		game = (t_game *)ft_calloc(1, sizeof(t_game));
 		init_game(game, argc);
 		parse_and_check(argv, game);
 		pb(game);
 		pa(game);
-		print_stack(game->stack_a, game->tail_a);
-		printf("\n");
-		print_stack(game->stack_b, game->tail_b);
+		printf("------------\n");
+		print_stack(game);
 		exit(0);
 	}
 	error_and_exit();

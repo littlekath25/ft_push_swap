@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 16:01:19 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/07 23:48:22 by kfu           ########   odam.nl         */
+/*   Updated: 2021/06/08 17:47:06 by kfu           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct s_game
 
 /* UTILS */
 void	error_and_exit(void);
-void	print_stack(t_stack *stack, t_stack *tail);
+void	print_stack(t_game *game);
 
 /* STACK UTILS */
 t_stack	*new_node(int number);
@@ -58,7 +58,8 @@ void	rrr(t_game *game);
 
 /* ACTIONS */
 void	ps_swap(int *a, int *b);
-void	ps_push(t_stack **src, t_stack **s_tail, t_stack **dest, t_stack **d_tail);
+void	ps_push(t_stack **src, t_stack **s_tail, \
+t_stack **dest, t_stack **d_tail);
 void	ps_rotate(t_stack **stack, t_stack **tail);
 void	ps_rev_rotate(t_stack **stack, t_stack **tail);
 
