@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/25 20:13:58 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/08 12:53:19 by kfu           ########   odam.nl         */
+/*   Updated: 2021/06/11 17:02:50 by kfu           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	*node_addfront(t_stack **stack, t_stack *new, t_stack **tail)
 	{
 		new->next = *stack;
 		*stack = new;
-		if (!*tail)
+		if (*tail == NULL)
 			*tail = ptr;
 		else
 			*stack = new;

@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/29 17:15:12 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/08 19:31:09 by kfu           ########   odam.nl         */
+/*   Updated: 2021/06/11 17:17:21 by kfu           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,38 +15,29 @@
 void	print_stack(t_game *game)
 {
 	t_stack	*ptr_a;
-	t_stack *ptr_b;
+	t_stack	*ptr_b;
 
 	ptr_a = game->stack_a;
 	ptr_b = game->stack_b;
-	while (ptr_a != NULL || ptr_b != NULL)
+	while (ptr_a)
 	{
-		if (ptr_a)
+		if (ptr_a == game->tail_a)
 		{
-			if (ptr_a == game->tail_a)
-			{
-				printf("%i ", game->tail_a->number);
-				ptr_a = NULL;
-			}
-			else
-			{
-				printf("%i ", ptr_a->number);
-				ptr_a = ptr_a->next;
-			}
+			printf("T: %i\n", game->tail_a->number);
+			break ;
 		}
-		if (ptr_b)
+		printf("N: %i\n", ptr_a->number);
+		ptr_a = ptr_a->next;
+	}
+	printf("--------------\n");
+	while (ptr_b)
+	{
+		if (ptr_b == game->tail_b)
 		{
-			if (ptr_b == game->tail_b)
-			{
-				printf("%i ", game->tail_b->number);
-				ptr_b = NULL;
-			}
-			else
-			{
-				printf("%i ", ptr_b->number);
-				ptr_b = ptr_b->next;
-			}
+			printf("T: %i\n", game->tail_b->number);
+			break ;
 		}
-		printf("\n");
+		printf("N: %i\n", ptr_b->number);
+		ptr_b = ptr_b->next;
 	}
 }

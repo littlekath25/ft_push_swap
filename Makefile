@@ -6,7 +6,7 @@
 #    By: kfu <kfu@student.codam.nl>                   +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/14 23:09:58 by kfu           #+#    #+#                  #
-#    Updated: 2021/06/07 14:14:51 by kfu           ########   odam.nl          #
+#    Updated: 2021/06/11 14:00:38 by kfu           ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,7 @@ CC		= 	gcc
 RM		=	rm -f
 #CFLAGS	= 	-Wall -Wextra -Werror
 
-S_SRC	= 	push_swap.c\
-			combi.c
+S_SRC	= 	push_swap.c
 S_PATH	=	src/
 S_OBJ	=	$(S_SRC:%.c=$(S_PATH)%.o)
 
