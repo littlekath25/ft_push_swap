@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 15:52:36 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/11 17:59:57 by kfu           ########   odam.nl         */
+/*   Updated: 2021/06/11 18:15:55 by kfu           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	check_if_sorted(t_stack *stack, t_stack *tail)
 	t_stack	*ptr;
 
 	ptr = stack;
-	while (ptr->number < ptr->next->number)
+	while (ptr->number > ptr->next->number)
 	{
 		ptr = ptr->next;
 		if (ptr->next == stack)
@@ -43,20 +43,6 @@ void	push_swap(t_game *game)
 
 	stacka = game->stack_a;
 	stackb = game->stack_b;
-	if (stacka == NULL)
-		return ;
-	if (stacka->number < stacka->next->number)
-		sa(game);
-	if (stacka->number < game->tail_a->number)
-		ra(game);
-	pb(game);
-	if (game->size_b > 1)
-	{
-		if (stackb->number < stackb->next->number)
-			sb(game);
-		if (game->tail_b->number < stackb->number)
-			rrb(game);
-	}
 	push_swap(game);
 }
 
