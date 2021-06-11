@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 15:52:36 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/11 17:25:50 by kfu           ########   odam.nl         */
+/*   Updated: 2021/06/11 17:59:57 by kfu           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,21 @@ void	push_swap(t_game *game)
 
 	stacka = game->stack_a;
 	stackb = game->stack_b;
-	// if (stacka->number < stacka->next->number)
-	// 	sa(game);
-	// if (stacka->number < game->tail_a->number)
-	// 	ra(game);
-	// if (game->size_b > 1)
-	// {
-	// 	if (stackb->number < stackb->next->number)
-	// 		sb(game);
-	// 	if (stacka->number < game->tail_a->number)
-	// 		rb(game);
-	// }
+	if (stacka == NULL)
+		return ;
+	if (stacka->number < stacka->next->number)
+		sa(game);
+	if (stacka->number < game->tail_a->number)
+		ra(game);
 	pb(game);
+	if (game->size_b > 1)
+	{
+		if (stackb->number < stackb->next->number)
+			sb(game);
+		if (game->tail_b->number < stackb->number)
+			rrb(game);
+	}
+	push_swap(game);
 }
 
 int	main(int argc, char **argv)
@@ -66,11 +69,7 @@ int	main(int argc, char **argv)
 		game = (t_game *)ft_calloc(1, sizeof(t_game));
 		init_game(game, argc);
 		parse_and_check(argv, game);
-		// push_swap(game);
-		pb(game);
-		pb(game);
-		pa(game);
-		pa(game);
+		push_swap(game);
 		print_stack(game);
 		exit(0);
 	}
