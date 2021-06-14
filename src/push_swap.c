@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 15:52:36 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/11 18:15:55 by kfu           ########   odam.nl         */
+/*   Updated: 2021/06/14 15:10:05 by kfu           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	check_if_sorted(t_stack *stack, t_stack *tail)
 	t_stack	*ptr;
 
 	ptr = stack;
-	while (ptr->number > ptr->next->number)
+	while (ptr->number < ptr->next->number)
 	{
 		ptr = ptr->next;
 		if (ptr->next == stack)
@@ -38,12 +38,28 @@ int	check_if_sorted(t_stack *stack, t_stack *tail)
 
 void	push_swap(t_game *game)
 {
-	t_stack *stacka;
-	t_stack *stackb;
-
-	stacka = game->stack_a;
-	stackb = game->stack_b;
-	push_swap(game);
+	if (game->size_a > 3)
+	{
+		if (check_if_sorted(game->stack_a, game->tail_a))
+			return ;
+		while (game->stack_a != NULL)
+		{
+			if (game->stack_a->number > game->stack_a->next->number)
+				sa(game);
+			if (game->stack_a->number > game->tail_a->number)
+				rra(game);
+			pb(game);
+		}
+		while (game->stack_b != NULL)
+		{
+			if (game->stack_b->number < game->stack_b->next->number)
+				sb(game);
+			if (game->stack_b->number < game->tail_b->number)
+				rb(game);
+			pa(game);
+		}
+		push_swap(game);
+	}
 }
 
 int	main(int argc, char **argv)
@@ -56,7 +72,7 @@ int	main(int argc, char **argv)
 		init_game(game, argc);
 		parse_and_check(argv, game);
 		push_swap(game);
-		print_stack(game);
+		// print_stack(game);
 		exit(0);
 	}
 	error_and_exit();

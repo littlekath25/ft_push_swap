@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 16:01:19 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/08 17:47:06 by kfu           ########   odam.nl         */
+/*   Updated: 2021/06/14 15:03:53 by kfu           ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	print_stack(t_game *game);
 
 /* STACK UTILS */
 t_stack	*new_node(int number);
-void	*node_addfront(t_stack **stack, t_stack *new, t_stack **tail);
+void	*node_addback(t_stack **stack, t_stack *new, t_stack **tail);
 
 /* OPERATIONS */
 void	sa(t_game *game);
