@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 16:11:43 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/15 19:26:29 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/15 19:47:50 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,27 +41,6 @@ static void	check_duplicates(double *stack, int len)
 		}
 		i++;
 	}
-}
-
-static void	is_all_digits(char *argv)
-{
-	int	i;
-
-	i = 0;
-	while (argv[i])
-	{
-		if (!(ft_isdigit(argv[i])))
-		{
-			if (i == 0 && argv[i] == '-' && ft_isdigit(argv[1]))
-			{
-				i++;
-				continue ;
-			}
-			error_and_exit();
-		}
-		i++;
-	}
-	return ;
 }
 
 void	parse_and_check(char **argv, t_game *game)

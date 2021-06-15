@@ -6,11 +6,32 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/29 17:15:12 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/15 17:27:04 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/15 19:47:56 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	is_all_digits(char *argv)
+{
+	int	i;
+
+	i = 0;
+	while (argv[i])
+	{
+		if (!(ft_isdigit(argv[i])))
+		{
+			if (i == 0 && argv[i] == '-' && ft_isdigit(argv[1]))
+			{
+				i++;
+				continue ;
+			}
+			error_and_exit();
+		}
+		i++;
+	}
+	return ;
+}
 
 void	print_stack(t_game *game)
 {

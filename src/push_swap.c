@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 15:52:36 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/15 19:27:47 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/15 19:49:37 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ int	main(int argc, char **argv)
 {
 	t_game	*game;
 
+	if (argc == 2)
+	{
+		is_all_digits(argv[1]);
+		exit (0);
+	}
 	if (argc > 2)
 	{
 		game = (t_game *)ft_calloc(1, sizeof(t_game));

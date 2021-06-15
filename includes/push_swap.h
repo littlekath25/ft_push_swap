@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 16:01:19 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/15 17:26:46 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/15 19:48:03 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_game
 void	error_and_exit(void);
 void	print_stack(t_game *game);
 int		check_if_sorted(t_stack *stack, t_stack *tail);
+void	is_all_digits(char *argv);
 
 /* STACK UTILS */
 t_stack	*new_node(int number);
