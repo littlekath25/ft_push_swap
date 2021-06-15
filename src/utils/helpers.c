@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/29 17:15:12 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/15 19:47:56 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/15 23:23:21 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	print_stack(t_game *game)
 		printf("N: %i\n", ptr_b->number);
 		ptr_b = ptr_b->next;
 	}
+	printf("OPERATIONS: %i\n", game->operations);
 }
 
 int	check_if_sorted(t_stack *stack, t_stack *tail)

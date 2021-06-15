@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 15:52:36 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/15 19:49:37 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/15 23:23:36 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static void	init_game(t_game *game, int argc)
 {
+	game->operations = 0;
 	game->size_a = argc - 1;
 	game->size_b = 0;
 	game->stack_a = NULL;
@@ -28,8 +29,10 @@ void	push_swap(t_game *game)
 		exit(0);
 	if (game->size_a == 2)
 		sa(game);
-	if (game->size_a > 3 && game->size_a < 100)
-		own_sort(game);
+	if (game->size_a == 3)
+		three_sort(game);
+	if (game->size_a == 5)
+		five_sort(game);
 }
 
 int	main(int argc, char **argv)

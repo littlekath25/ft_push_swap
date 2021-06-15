@@ -6,7 +6,7 @@
 #    By: kfu <kfu@student.codam.nl>                   +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/14 23:09:58 by kfu           #+#    #+#                  #
-#    Updated: 2021/06/15 17:25:54 by katherine     ########   odam.nl          #
+#    Updated: 2021/06/15 21:53:01 by katherine     ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ S_PATH	=	src/
 S_OBJ	=	$(S_SRC:%.c=$(S_PATH)%.o)
 
 A_SRC	= 	own-sort.c\
-			small-sort.c
+			three-sort.c\
+			five-sort.c
 A_PATH	=	src/algorithms/
 A_OBJ	=	$(A_SRC:%.c=$(A_PATH)%.o)
 

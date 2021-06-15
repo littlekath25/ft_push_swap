@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/03 14:12:37 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/14 13:52:48 by kfu           ########   odam.nl         */
+/*   Updated: 2021/06/15 23:22:35 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	pa(t_game *game)
 		game->stack_b = NULL;
 		game->tail_b = NULL;
 	}
+	game->operations++;
 }
 
 void	pb(t_game *game)
@@ -40,4 +41,5 @@ void	pb(t_game *game)
 		game->tail_a = NULL;
 	}
 	write(1, "pb\n", 3);
+	game->operations++;
 }

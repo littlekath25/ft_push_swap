@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 16:01:19 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/15 19:48:03 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/15 23:21:49 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_stack
 
 typedef struct s_game
 {
+	int		operations;
 	int		size_a;
 	int		size_b;
 	t_stack	*stack_a;
@@ -69,5 +70,7 @@ void	parse_and_check(char **argv, t_game *game);
 /* ALGORITHMS */
 void	own_sort(t_game *game);
 void	small_sort(t_game *game);
+void	three_sort(t_game *game);
+void	five_sort(t_game *game);
 
 #endif
