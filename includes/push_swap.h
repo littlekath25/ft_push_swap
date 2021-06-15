@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 16:01:19 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/14 15:03:53 by kfu           ########   odam.nl         */
+/*   Updated: 2021/06/15 17:26:46 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_game
 /* UTILS */
 void	error_and_exit(void);
 void	print_stack(t_game *game);
+int		check_if_sorted(t_stack *stack, t_stack *tail);
 
 /* STACK UTILS */
 t_stack	*new_node(int number);
@@ -58,11 +59,14 @@ void	rrr(t_game *game);
 
 /* ACTIONS */
 void	ps_swap(int *a, int *b);
-void	ps_push(t_stack **src, t_stack **s_tail, \
-t_stack **dest, t_stack **d_tail);
+void	ps_push(t_stack **src, t_stack **s_tail, t_stack **dest, t_stack **d_tail);
 void	ps_rotate(t_stack **stack, t_stack **tail);
 void	ps_rev_rotate(t_stack **stack, t_stack **tail);
 
 void	parse_and_check(char **argv, t_game *game);
+
+/* ALGORITHMS */
+void	own_sort(t_game *game);
+void	small_sort(t_game *game);
 
 #endif

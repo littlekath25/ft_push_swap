@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/29 17:15:12 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/11 17:17:21 by kfu           ########   odam.nl         */
+/*   Updated: 2021/06/15 17:27:04 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,18 @@ void	print_stack(t_game *game)
 		printf("N: %i\n", ptr_b->number);
 		ptr_b = ptr_b->next;
 	}
+}
+
+int	check_if_sorted(t_stack *stack, t_stack *tail)
+{
+	t_stack	*ptr;
+
+	ptr = stack;
+	while (ptr->number < ptr->next->number)
+	{
+		ptr = ptr->next;
+		if (ptr->next == stack)
+			return (1);
+	}
+	return (0);
 }
