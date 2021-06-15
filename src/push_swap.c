@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 15:52:36 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/15 23:58:15 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/16 00:03:24 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	push_swap(t_game *game)
 		three_sort(game);
 	if (game->size_a == 5)
 		five_sort(game);
-	if (game->size_a > 5 && game->size_a <= 40)
+	else
 		own_sort(game);
 }
 
