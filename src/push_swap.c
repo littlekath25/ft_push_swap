@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 15:52:36 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/15 23:23:36 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/15 23:58:15 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	push_swap(t_game *game)
 		three_sort(game);
 	if (game->size_a == 5)
 		five_sort(game);
+	if (game->size_a > 5 && game->size_a <= 40)
+		own_sort(game);
 }
 
 int	main(int argc, char **argv)
@@ -50,7 +52,7 @@ int	main(int argc, char **argv)
 		init_game(game, argc);
 		parse_and_check(argv, game);
 		push_swap(game);
-		print_stack(game);
+		// print_stack(game);
 		exit(0);
 	}
 	error_and_exit();
