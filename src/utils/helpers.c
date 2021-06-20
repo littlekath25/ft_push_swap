@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/29 17:15:12 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/15 23:23:21 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/20 14:00:27 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,24 @@ int	check_if_sorted(t_stack *stack, t_stack *tail)
 			return (1);
 	}
 	return (0);
+}
+
+void	get_min_max(t_stack *stack, int *min, int *max, int size)
+{
+	t_stack	*ptr;
+	int		i;
+
+	i = 0;
+	*min = stack->number;
+	*max = stack->number;
+	ptr = stack;
+	while (i < size)
+	{
+		if (ptr->number > *max)
+			*max = ptr->number;
+		if (ptr->number < *min)
+			*min = ptr->number;
+		ptr = ptr->next;
+		i++;
+	}
 }
