@@ -6,7 +6,7 @@
 #    By: kfu <kfu@student.codam.nl>                   +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/14 23:09:58 by kfu           #+#    #+#                  #
-#    Updated: 2021/06/15 21:53:01 by katherine     ########   odam.nl          #
+#    Updated: 2021/06/21 14:58:57 by katherine     ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,9 +19,10 @@ S_SRC	= 	push_swap.c
 S_PATH	=	src/
 S_OBJ	=	$(S_SRC:%.c=$(S_PATH)%.o)
 
-A_SRC	= 	own-sort.c\
+A_SRC	= 	small-sort.c\
 			three-sort.c\
-			five-sort.c
+			five-sort.c\
+			medium-sort.c
 A_PATH	=	src/algorithms/
 A_OBJ	=	$(A_SRC:%.c=$(A_PATH)%.o)
 
@@ -36,7 +37,8 @@ O_OBJ	=	$(O_SRC:%.c=$(O_PATH)%.o)
 U_SRC	= 	error.c\
 			input_checker.c\
 			stack_functions.c\
-			helpers.c
+			helpers.c\
+			helpers2.c
 U_PATH	=	src/utils/
 U_OBJ	=	$(U_SRC:%.c=$(U_PATH)%.o)
 

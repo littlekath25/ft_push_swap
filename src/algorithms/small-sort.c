@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   own-sort.c                                         :+:    :+:            */
+/*   small-sort.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: katherine <katherine@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/15 16:44:09 by katherine     #+#    #+#                 */
-/*   Updated: 2021/06/21 11:55:35 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/21 12:17:26 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	own_sort(t_game *game)
+void	small_sort(t_game *game)
 {
 	if (check_if_sorted(game->stack_a, game->tail_a))
 		return ;
@@ -32,5 +32,5 @@ void	own_sort(t_game *game)
 			rb(game);
 		pa(game);
 	}
-	own_sort(game);
+	small_sort(game);
 }
