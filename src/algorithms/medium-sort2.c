@@ -6,7 +6,7 @@
 /*   By: katherine <katherine@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/22 15:51:35 by katherine     #+#    #+#                 */
-/*   Updated: 2021/06/22 16:12:50 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/22 16:49:42 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	get_first_second(t_stack *ptr, t_medium_info *info, t_game *game)
 	info->first_pos = -1;
 	info->second_pos = -1;
 	search_first_second(ptr, info, game);
-	if (info->first_pos == -1 && info->second == -1)
+	if (info->first_pos == -1 && info->second_pos == -1)
 		return (0);
 	return (1);
 }
