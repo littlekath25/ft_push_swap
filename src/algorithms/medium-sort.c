@@ -6,7 +6,7 @@
 /*   By: katherine <katherine@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/21 12:20:39 by katherine     #+#    #+#                 */
-/*   Updated: 2021/06/22 16:49:51 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/22 16:57:34 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,20 @@ static void	push_chunks_to_stack(t_game *game, t_medium_info *info, int total)
 	ptr = game->stack_a;
 	if (ptr == NULL)
 		return ;
+	if (game->size_a == 1)
+	{
+		push_to_stack(game);
+		return ;
+	}
 	calculate_chunk(info, total);
 	ret = get_first_second(ptr, info, game);
-	push_to_top(info, total, game);
-	push_to_stack(game);
+	while (ret)
+	{
+		push_to_top(info, total, game);
+		push_to_stack(game);
+		ret = get_first_second(ptr, info, game);
+	}
+	push_chunks_to_stack(game, info, total);
 }
 
 void	medium_sort(t_game *game)
