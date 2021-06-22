@@ -6,51 +6,55 @@
 /*   By: katherine <katherine@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/21 12:20:39 by katherine     #+#    #+#                 */
-/*   Updated: 2021/06/21 15:33:42 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/22 16:15:06 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	get_first_second(t_stack *ptr, t_medium_info *info, t_game *game)
+static void	push_to_stack(t_game *game)
 {
-	int		i;
+	int	min;
+	int	max;
 
-	i = 2;
-	if (ptr->number <= info->chunk)
+	pb(game);
+}
+
+static void	push_to_top(t_medium_info *info, int total, t_game *game)
+{
+	int	i;
+	int	steps;
+	int	rotate_dir;
+
+	if (info->second_pos == total)
+		rra(game);
+	else if (info->first_pos != 1)
 	{
-		info->first = ptr->number;
-		info->first_pos = 1;
-	}
-	ptr = ptr->next;
-	while (ptr != game->stack_a)
-	{
-		if (info->first_pos == -1 && ptr->number <= info->chunk)
+		i = 0;
+		determine_steps(info, &rotate_dir, &steps, total);
+		while (i < steps)
 		{
-			info->first = ptr->number;
-			info->first_pos = i;
+			if (rotate_dir == 1)
+				ra(game);
+			else
+				rra(game);
+			i++;
 		}
-		if (ptr->number <= info->chunk)
-		{
-			info->second = ptr->number;
-			info->second_pos = i;
-		}
-		ptr = ptr->next;
-		i++;
 	}
 }
 
 static void	push_chunks_to_stack(t_game *game, t_medium_info *info, int total)
 {
 	t_stack	*ptr;
+	int		ret;
 
 	ptr = game->stack_a;
 	if (ptr == NULL)
 		return ;
-	calculate_cunk(info, total);
-	get_first_second(ptr, info, game);
-	printf("FIRST: %i - %i\n", info->first, info->first_pos);
-	printf("SECOND: %i - %i\n", info->second, info->second_pos);
+	calculate_chunk(info, total);
+	ret = get_first_second(ptr, info, game);
+	push_to_top(info, total, game);
+	push_to_stack(game);
 }
 
 void	medium_sort(t_game *game)
