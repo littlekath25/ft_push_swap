@@ -6,13 +6,40 @@
 /*   By: katherine <katherine@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/22 15:51:35 by katherine     #+#    #+#                 */
-/*   Updated: 2021/06/22 16:49:42 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/24 13:42:42 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	search_first_second(t_stack *ptr, t_medium_info *info, t_game *game)
+void	get_max(t_game *game, t_medium_max *final)
+{
+	t_stack			*ptr;
+	int				i;
+	int				min;
+
+	get_min_max(game->stack_b, &min, &final->max, game->size_b);
+	ptr = game->stack_b;
+	if (ptr->number == final->max)
+	{
+		final->max_pos = 1;
+		return ;
+	}
+	ptr = ptr->next;
+	i = 2;
+	while (ptr != game->stack_b)
+	{
+		if (ptr->number == final->max)
+		{
+			final->max_pos = i;
+			break ;
+		}
+		ptr = ptr->next;
+		i++;
+	}
+}
+
+void	search_first_second(t_stack *ptr, t_medium_info *info, t_game *game)
 {
 	int	i;
 
@@ -62,4 +89,10 @@ void	determine_steps(t_medium_info *info, int *rotate_dir, int *steps, int total
 		*steps = info->second_steps_to_top;
 		*rotate_dir = 0;
 	}
+}
+
+void	calculate_chunk(t_medium_info *info, int max)
+{
+	info->chunk = (max / 5) * info->chunk_number;
+	info->chunk_number++;
 }

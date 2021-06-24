@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 16:01:19 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/22 15:58:43 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/24 13:40:01 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct s_game
 	t_stack	*tail_b;
 }	t_game;
 
-typedef struct s_medium_uinfo
+typedef struct s_medium_info
 {
 	int	first;
 	int	second;
@@ -47,6 +47,14 @@ typedef struct s_medium_uinfo
 	int	first_steps_to_top;
 	int	second_steps_to_top;
 }	t_medium_info;
+
+typedef struct s_medium_max
+{
+	int	max;
+	int	max_pos;
+	int	steps_to_top;
+	int	direction;
+}	t_medium_max;
 
 /* UTILS */
 void	error_and_exit(void);
@@ -81,9 +89,10 @@ void	ps_rev_rotate(t_stack **stack, t_stack **tail);
 // OTHER
 void	parse_and_check(char **argv, t_game *game);
 void	init_info(t_medium_info *info);
-void	calculate_chunk(t_medium_info *info, int total);
+void	calculate_chunk(t_medium_info *info, int max);
 void	determine_steps(t_medium_info *info, int *rotate_dir, int *steps, int total);
 int		get_first_second(t_stack *ptr, t_medium_info *info, t_game *game);
+void	get_max(t_game *game, t_medium_max *final);
 
 // ALGORITHMS
 void	three_sort(t_game *game);
