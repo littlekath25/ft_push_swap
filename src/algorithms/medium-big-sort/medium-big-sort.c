@@ -1,104 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   medium-sort.c                                      :+:    :+:            */
+/*   medium-big-sort.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: katherine <katherine@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/21 12:20:39 by katherine     #+#    #+#                 */
-/*   Updated: 2021/06/24 20:52:50 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/24 22:44:26 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	push_correct_position(t_game *game)
-{
-	int	min;
-	int	max;
-
-	if (game->stack_b == NULL)
-		pb(game);
-	else
-	{
-		get_min_max(game->stack_b, &min, &max, game->size_b);
-		if (game->stack_a->number > max)
-		{
-			while (game->stack_b->number != min)
-				rb(game);
-			pb(game);
-		}
-		else if (game->stack_a->number < min)
-		{
-			pb(game);
-			rrb(game);
-		}
-		else
-			pb(game);
-	}
-}
-
-static void	push_min_to_top(t_info *info, int total, t_game *game)
-{
-	int	i;
-	int	steps;
-	int	rotate_dir;
-
-	if (info->second_pos == total)
-		rra(game);
-	else if (info->first_pos != 1)
-	{
-		i = 0;
-		determine_steps(info, &rotate_dir, &steps, total);
-		while (i < steps)
-		{
-			if (rotate_dir == 1)
-				ra(game);
-			else
-				rra(game);
-			i++;
-		}
-	}
-}
-
-static void	push_max_to_top(t_final *final, int total, t_game *game)
-{
-	int	i;
-	int	steps;
-	int	rotate_dir;
-
-	if (final->max_pos == 1 || final->max_pos == total)
-	{
-		if (final->max_pos == total)
-			rrb(game);
-		pa(game);
-	}
-	else
-	{
-		i = 0;
-		if (final->max_pos > (total / 2))
-		{
-			rotate_dir = 0;
-			steps = (total + 1) - final->max_pos;
-		}
-		else
-		{
-			rotate_dir = 1;
-			steps = final->max_pos - 1;
-		}
-		while (i < steps)
-		{
-			if (rotate_dir == 1)
-				rb(game);
-			else
-				rrb(game);
-			i++;
-		}
-		pa(game);
-	}
-}
-
-static void	push_back_to_a(t_game *game, int total)
+void	push_back_to_a(t_game *game, int total)
 {
 	int		max_pos;
 	t_final	*final;
@@ -110,7 +24,7 @@ static void	push_back_to_a(t_game *game, int total)
 	free(final);
 }
 
-static void	push_chunks_to_b(t_game *game, t_info *info, int total, int max)
+void	push_chunks_to_b(t_game *game, t_info *info, int total, int max)
 {
 	t_stack	*ptr;
 
@@ -134,7 +48,19 @@ static void	push_chunks_to_b(t_game *game, t_info *info, int total, int max)
 	}
 }
 
-void	medium_sort(t_game *game)
+void	set_num_of_chunks(t_game *game, t_info *info)
+{
+	if (game->size_a < 101)
+		info->num_of_chunks = 5;
+	else if (game->size_a < 201)
+		info->num_of_chunks = 10;
+	else if (game->size_a < 400)
+		info->num_of_chunks = 15;
+	else
+		info->num_of_chunks = 20;
+}
+
+void	medium_big_sort(t_game *game)
 {
 	int		total;
 	int		min;
@@ -143,6 +69,7 @@ void	medium_sort(t_game *game)
 
 	info = (t_info *)ft_calloc(1, sizeof(t_info));
 	init_info(info);
+	set_num_of_chunks(game, info);
 	get_min_max(game->stack_a, &min, &max, game->size_a);
 	total = game->size_a;
 	while (game->stack_a)

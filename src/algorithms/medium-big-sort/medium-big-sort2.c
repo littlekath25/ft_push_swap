@@ -1,22 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   medium-sort2.c                                     :+:    :+:            */
+/*   medium-big-sort2.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: katherine <katherine@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/22 15:51:35 by katherine     #+#    #+#                 */
-/*   Updated: 2021/06/24 20:49:27 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/24 22:30:48 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	push_correct_position(t_game *game)
+{
+	int	min;
+	int	max;
+
+	if (game->stack_b == NULL)
+		pb(game);
+	else
+	{
+		get_min_max(game->stack_b, &min, &max, game->size_b);
+		if (game->stack_a->number > max)
+		{
+			while (game->stack_b->number != min)
+				rb(game);
+			pb(game);
+		}
+		else if (game->stack_a->number < min)
+		{
+			pb(game);
+			rrb(game);
+		}
+		else
+			pb(game);
+	}
+}
+
 void	get_max(t_game *game, t_final *final)
 {
-	t_stack			*ptr;
-	int				i;
-	int				min;
+	t_stack	*ptr;
+	int		i;
+	int		min;
 
 	get_min_max(game->stack_b, &min, &final->max, game->size_b);
 	ptr = game->stack_b;
@@ -78,21 +104,8 @@ int	get_first_second(t_stack *ptr, t_info *info, t_game *game)
 	return (1);
 }
 
-void	determine_steps(t_info *info, int *rotate_dir, int *steps, int total)
-{
-	info->first_steps_to_top = info->first_pos - 1;
-	info->second_steps_to_top = (total + 1) - info->second_pos;
-	*steps = info->first_steps_to_top;
-	*rotate_dir = 1;
-	if (info->second_steps_to_top < info->first_steps_to_top)
-	{
-		*steps = info->second_steps_to_top;
-		*rotate_dir = 0;
-	}
-}
-
 void	calculate_chunk(t_info *info, int max)
 {
-	info->chunk = (max / 5) * info->chunk_number;
+	info->chunk = (max / info->num_of_chunks) * info->chunk_number;
 	info->chunk_number++;
 }

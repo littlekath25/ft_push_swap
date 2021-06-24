@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 16:01:19 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/24 20:58:35 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/24 22:29:21 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct s_info
 	int	first_pos;
 	int	second_pos;
 	int	chunk;
+	int	num_of_chunks;
 	int	chunk_number;
 	int	first_steps_to_top;
 	int	second_steps_to_top;
@@ -55,6 +56,8 @@ typedef struct s_final
 	int	steps_to_top;
 	int	direction;
 }	t_final;
+
+void	parse_and_check(char **argv, t_game *game);
 
 /* UTILS */
 void	error_and_exit(void);
@@ -90,18 +93,19 @@ void	ps_push(t_stack **src, t_stack **s_tail, t_stack **dest, t_stack **d_tail);
 void	ps_rotate(t_stack **stack, t_stack **tail);
 void	ps_rev_rotate(t_stack **stack, t_stack **tail);
 
-// OTHER
-void	parse_and_check(char **argv, t_game *game);
-void	init_info(t_info *info);
-void	calculate_chunk(t_info *info, int max);
-void	determine_steps(t_info *info, int *rotate_dir, int *steps, int total);
-int		get_first_second(t_stack *ptr, t_info *info, t_game *game);
-void	get_max(t_game *game, t_final *final);
-
 // ALGORITHMS
 void	three_sort(t_game *game);
 void	five_sort(t_game *game);
 void	small_sort(t_game *game);
-void	medium_sort(t_game *game);
+void	medium_big_sort(t_game *game);
+
+// ALGORITHMS FUNCTIONS
+void	calculate_chunk(t_info *info, int max);
+void	determine_steps(t_info *info, int *rotate_dir, int *steps, int total);
+int		get_first_second(t_stack *ptr, t_info *info, t_game *game);
+void	get_max(t_game *game, t_final *final);
+void	push_correct_position(t_game *game);
+void	push_min_to_top(t_info *info, int total, t_game *game);
+void	push_max_to_top(t_final *final, int total, t_game *game);
 
 #endif
