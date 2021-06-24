@@ -6,7 +6,7 @@
 /*   By: katherine <katherine@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/22 15:51:35 by katherine     #+#    #+#                 */
-/*   Updated: 2021/06/24 13:42:42 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/24 20:39:18 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	search_first_second(t_stack *ptr, t_medium_info *info, t_game *game)
 
 	i = 2;
 	ptr = game->stack_a;
-	if (ptr->number <= info->chunk)
+	if (ptr->number < info->chunk)
 	{
 		info->first = ptr->number;
 		info->first_pos = 1;
