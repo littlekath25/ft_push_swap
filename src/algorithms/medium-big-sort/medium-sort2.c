@@ -6,13 +6,13 @@
 /*   By: katherine <katherine@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/22 15:51:35 by katherine     #+#    #+#                 */
-/*   Updated: 2021/06/24 20:39:18 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/24 20:49:27 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	get_max(t_game *game, t_medium_max *final)
+void	get_max(t_game *game, t_final *final)
 {
 	t_stack			*ptr;
 	int				i;
@@ -39,7 +39,7 @@ void	get_max(t_game *game, t_medium_max *final)
 	}
 }
 
-void	search_first_second(t_stack *ptr, t_medium_info *info, t_game *game)
+void	search_first_second(t_stack *ptr, t_info *info, t_game *game)
 {
 	int	i;
 
@@ -68,7 +68,7 @@ void	search_first_second(t_stack *ptr, t_medium_info *info, t_game *game)
 	}
 }
 
-int	get_first_second(t_stack *ptr, t_medium_info *info, t_game *game)
+int	get_first_second(t_stack *ptr, t_info *info, t_game *game)
 {
 	info->first_pos = -1;
 	info->second_pos = -1;
@@ -78,7 +78,7 @@ int	get_first_second(t_stack *ptr, t_medium_info *info, t_game *game)
 	return (1);
 }
 
-void	determine_steps(t_medium_info *info, int *rotate_dir, int *steps, int total)
+void	determine_steps(t_info *info, int *rotate_dir, int *steps, int total)
 {
 	info->first_steps_to_top = info->first_pos - 1;
 	info->second_steps_to_top = (total + 1) - info->second_pos;
@@ -91,7 +91,7 @@ void	determine_steps(t_medium_info *info, int *rotate_dir, int *steps, int total
 	}
 }
 
-void	calculate_chunk(t_medium_info *info, int max)
+void	calculate_chunk(t_info *info, int max)
 {
 	info->chunk = (max / 5) * info->chunk_number;
 	info->chunk_number++;

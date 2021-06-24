@@ -6,13 +6,13 @@
 /*   By: katherine <katherine@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/21 12:20:39 by katherine     #+#    #+#                 */
-/*   Updated: 2021/06/24 20:45:57 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/24 20:52:50 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	get_correct_position(t_game *game)
+static void	push_correct_position(t_game *game)
 {
 	int	min;
 	int	max;
@@ -38,7 +38,7 @@ static void	get_correct_position(t_game *game)
 	}
 }
 
-static void	push_min_to_top(t_medium_info *info, int total, t_game *game)
+static void	push_min_to_top(t_info *info, int total, t_game *game)
 {
 	int	i;
 	int	steps;
@@ -61,7 +61,7 @@ static void	push_min_to_top(t_medium_info *info, int total, t_game *game)
 	}
 }
 
-static void	push_max_to_top(t_medium_max *final, int total, t_game *game)
+static void	push_max_to_top(t_final *final, int total, t_game *game)
 {
 	int	i;
 	int	steps;
@@ -100,17 +100,17 @@ static void	push_max_to_top(t_medium_max *final, int total, t_game *game)
 
 static void	push_back_to_a(t_game *game, int total)
 {
-	int				max_pos;
-	t_medium_max	*final;
+	int		max_pos;
+	t_final	*final;
 
-	final = (t_medium_max *)ft_calloc(1, sizeof(t_medium_max));
+	final = (t_final *)ft_calloc(1, sizeof(t_final));
 	total = game->size_b;
 	get_max(game, final);
 	push_max_to_top(final, total, game);
 	free(final);
 }
 
-static void	push_chunks_to_b(t_game *game, t_medium_info *info, int total, int max)
+static void	push_chunks_to_b(t_game *game, t_info *info, int total, int max)
 {
 	t_stack	*ptr;
 
@@ -129,19 +129,19 @@ static void	push_chunks_to_b(t_game *game, t_medium_info *info, int total, int m
 		while (get_first_second(ptr, info, game))
 		{
 			push_min_to_top(info, total, game);
-			get_correct_position(game);
+			push_correct_position(game);
 		}
 	}
 }
 
 void	medium_sort(t_game *game)
 {
-	int				total;
-	int				min;
-	int				max;
-	t_medium_info	*info;
+	int		total;
+	int		min;
+	int		max;
+	t_info	*info;
 
-	info = (t_medium_info *)ft_calloc(1, sizeof(t_medium_info));
+	info = (t_info *)ft_calloc(1, sizeof(t_info));
 	init_info(info);
 	get_min_max(game->stack_a, &min, &max, game->size_a);
 	total = game->size_a;

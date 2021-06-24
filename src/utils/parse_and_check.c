@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   input_checker.c                                    :+:    :+:            */
+/*   parse_and_check.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 16:11:43 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/15 19:47:50 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/24 21:02:48 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	init_stack(double *digits, t_game *game)
+void	create_stacka(double *digits, t_game *game)
 {
 	int	i;
 
@@ -61,5 +61,5 @@ void	parse_and_check(char **argv, t_game *game)
 		j++;
 	}
 	check_duplicates(digits, game->size_a);
-	init_stack(digits, game);
+	create_stacka(digits, game);
 }

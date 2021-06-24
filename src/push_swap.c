@@ -6,22 +6,11 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 15:52:36 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/24 20:28:56 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/24 21:02:04 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static void	init_game(t_game *game, int argc)
-{
-	game->operations = 0;
-	game->size_a = argc - 1;
-	game->size_b = 0;
-	game->stack_a = NULL;
-	game->stack_b = NULL;
-	game->tail_a = NULL;
-	game->tail_b = NULL;
-}
 
 void	push_swap(t_game *game)
 {
@@ -33,8 +22,10 @@ void	push_swap(t_game *game)
 		three_sort(game);
 	if (game->size_a == 5)
 		five_sort(game);
-	else if (game->size_a < 101)
+	if (game->size_a > 5 && game->size_a < 101)
 		medium_sort(game);
+	else
+		small_sort(game);
 }
 
 int	main(int argc, char **argv)
@@ -42,10 +33,7 @@ int	main(int argc, char **argv)
 	t_game	*game;
 
 	if (argc == 2)
-	{
 		is_all_digits(argv[1]);
-		exit (0);
-	}
 	if (argc > 2)
 	{
 		game = (t_game *)ft_calloc(1, sizeof(t_game));
@@ -53,7 +41,6 @@ int	main(int argc, char **argv)
 		parse_and_check(argv, game);
 		push_swap(game);
 		print_stack(game);
-		exit(0);
 	}
-	error_and_exit();
+	exit (0);
 }

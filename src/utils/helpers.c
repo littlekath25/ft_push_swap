@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/29 17:15:12 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/24 13:30:06 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/24 20:57:16 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,9 +98,4 @@ void	get_min_max(t_stack *stack, int *min, int *max, int size)
 	}
 }
 
-void	init_info(t_medium_info *info)
-{
-	info->chunk_number = 1;
-	info->first_pos = -1;
-	info->second_pos = -1;
-}
+

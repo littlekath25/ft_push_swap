@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 16:01:19 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/24 13:40:01 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/24 20:58:35 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct s_game
 	t_stack	*tail_b;
 }	t_game;
 
-typedef struct s_medium_info
+typedef struct s_info
 {
 	int	first;
 	int	second;
@@ -46,15 +46,15 @@ typedef struct s_medium_info
 	int	chunk_number;
 	int	first_steps_to_top;
 	int	second_steps_to_top;
-}	t_medium_info;
+}	t_info;
 
-typedef struct s_medium_max
+typedef struct s_final
 {
 	int	max;
 	int	max_pos;
 	int	steps_to_top;
 	int	direction;
-}	t_medium_max;
+}	t_final;
 
 /* UTILS */
 void	error_and_exit(void);
@@ -63,11 +63,15 @@ int		check_if_sorted(t_stack *stack, t_stack *tail);
 void	is_all_digits(char *argv);
 void	get_min_max(t_stack *stack, int *min, int *max, int size);
 
-/* STACK UTILS */
+// INITIALIZE STRUCTS
+void	init_game(t_game *game, int argc);
+void	init_info(t_info *info);
+
+// STACK FUNCTIONS
 t_stack	*new_node(int number);
 void	*node_addback(t_stack **stack, t_stack *new, t_stack **tail);
 
-/* OPERATIONS */
+// OPERATIONS
 void	sa(t_game *game);
 void	sb(t_game *game);
 void	ss(t_game *game);
@@ -88,11 +92,11 @@ void	ps_rev_rotate(t_stack **stack, t_stack **tail);
 
 // OTHER
 void	parse_and_check(char **argv, t_game *game);
-void	init_info(t_medium_info *info);
-void	calculate_chunk(t_medium_info *info, int max);
-void	determine_steps(t_medium_info *info, int *rotate_dir, int *steps, int total);
-int		get_first_second(t_stack *ptr, t_medium_info *info, t_game *game);
-void	get_max(t_game *game, t_medium_max *final);
+void	init_info(t_info *info);
+void	calculate_chunk(t_info *info, int max);
+void	determine_steps(t_info *info, int *rotate_dir, int *steps, int total);
+int		get_first_second(t_stack *ptr, t_info *info, t_game *game);
+void	get_max(t_game *game, t_final *final);
 
 // ALGORITHMS
 void	three_sort(t_game *game);

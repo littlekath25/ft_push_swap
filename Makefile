@@ -6,7 +6,7 @@
 #    By: kfu <kfu@student.codam.nl>                   +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/14 23:09:58 by kfu           #+#    #+#                  #
-#    Updated: 2021/06/24 18:30:39 by katherine     ########   odam.nl          #
+#    Updated: 2021/06/24 21:01:23 by katherine     ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,9 +36,10 @@ O_PATH	=	src/operations/
 O_OBJ	=	$(O_SRC:%.c=$(O_PATH)%.o)
 
 U_SRC	= 	error.c\
-			input_checker.c\
+			parse_and_check.c\
 			stack_functions.c\
-			helpers.c
+			helpers.c\
+			init.c
 U_PATH	=	src/utils/
 U_OBJ	=	$(U_SRC:%.c=$(U_PATH)%.o)
 
