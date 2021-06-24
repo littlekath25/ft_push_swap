@@ -6,7 +6,7 @@
 /*   By: katherine <katherine@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/21 12:20:39 by katherine     #+#    #+#                 */
-/*   Updated: 2021/06/24 14:09:53 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/24 18:24:48 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,38 +85,34 @@ static void	push_max_to_top(t_medium_max *final, int total, t_game *game)
 		{
 			rotate_dir = 1;
 			steps = final->max_pos - 1;
-			while (i < steps)
-			{
-				if (rotate_dir == 1)
-					rb(game);
-				else
-					rrb(game);
-				i++;
-			}
-			pa(game);
 		}
+		while (i < steps)
+		{
+			if (rotate_dir == 1)
+				rb(game);
+			else
+				rrb(game);
+			i++;
+		}
+		pa(game);
 	}
 }
 
-static void	push_back_final(t_game *game, int total)
+static void	push_back_to_a(t_game *game, int total)
 {
 	int				max_pos;
 	t_medium_max	*final;
 
-	if (game->stack_b == NULL)
-		return ;
 	final = (t_medium_max *)ft_calloc(1, sizeof(t_medium_max));
 	total = game->size_b;
 	get_max(game, final);
 	push_max_to_top(final, total, game);
 	free(final);
-	push_back_final(game, total);
 }
 
-static void	push_chunks_to_stack(t_game *game, t_medium_info *info, int total, int max)
+static void	push_chunks_to_b(t_game *game, t_medium_info *info, int total, int max)
 {
 	t_stack	*ptr;
-	int		ret;
 
 	ptr = game->stack_a;
 	if (ptr == NULL)
@@ -127,14 +123,11 @@ static void	push_chunks_to_stack(t_game *game, t_medium_info *info, int total, i
 		return ;
 	}
 	calculate_chunk(info, max);
-	ret = get_first_second(ptr, info, game);
-	while (ret)
+	while (get_first_second(ptr, info, game))
 	{
 		push_min_to_top(info, total, game);
 		push_to_stack(game);
-		ret = get_first_second(ptr, info, game);
 	}
-	push_chunks_to_stack(game, info, total, max);
 }
 
 void	medium_sort(t_game *game)
@@ -145,10 +138,12 @@ void	medium_sort(t_game *game)
 	t_medium_info	*info;
 
 	info = (t_medium_info *)ft_calloc(1, sizeof(t_medium_info));
+	init_info(info);
 	get_min_max(game->stack_a, &min, &max, game->size_a);
 	total = game->size_a;
-	init_info(info);
-	push_chunks_to_stack(game, info, total, max);
-	push_back_final(game, total);
+	while (game->stack_a)
+		push_chunks_to_b(game, info, total, max);
+	while (game->stack_b)
+		push_back_to_a(game, total);
 	free(info);
 }
