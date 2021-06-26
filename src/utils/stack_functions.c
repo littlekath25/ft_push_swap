@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/25 20:13:58 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/14 15:09:44 by kfu           ########   odam.nl         */
+/*   Updated: 2021/06/26 13:41:24 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_stack	*new_node(int number)
 	return (new);
 }
 
-void	*node_addback(t_stack **stack, t_stack *new, t_stack **tail)
+void	node_addback(t_stack **stack, t_stack *new, t_stack **tail)
 {
 	t_stack	*ptr;
 

@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 16:01:19 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/26 13:32:05 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/26 13:42:21 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	parse_and_check(char **argv, t_game *game);
 /* UTILS */
 void	error_and_exit(void);
 void	print_stack(t_game *game);
-int		check_if_sorted(t_stack *stack, t_stack *tail);
+int		check_if_sorted(t_stack *stack);
 void	is_all_digits(char *argv);
 void	get_min_max(t_stack *stack, int *min, int *max, int size);
 
@@ -75,7 +75,7 @@ void	init_info(t_info *info);
 
 // STACK FUNCTIONS
 t_stack	*new_node(int number);
-void	*node_addback(t_stack **stack, t_stack *new, t_stack **tail);
+void	node_addback(t_stack **stack, t_stack *new, t_stack **tail);
 
 // OPERATIONS
 void	sa(t_game *game);

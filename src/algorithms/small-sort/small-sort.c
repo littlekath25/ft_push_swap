@@ -6,7 +6,7 @@
 /*   By: katherine <katherine@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/15 16:44:09 by katherine     #+#    #+#                 */
-/*   Updated: 2021/06/21 12:17:26 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/26 13:42:51 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	small_sort(t_game *game)
 {
-	if (check_if_sorted(game->stack_a, game->tail_a))
+	if (check_if_sorted(game->stack_a))
 		return ;
 	while (game->stack_a != NULL)
 	{

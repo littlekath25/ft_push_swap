@@ -6,7 +6,7 @@
 /*   By: katherine <katherine@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/15 16:46:58 by katherine     #+#    #+#                 */
-/*   Updated: 2021/06/15 21:45:09 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/26 13:43:03 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	three_sort(t_game *game)
 	int	second;
 	int	third;
 
-	if (check_if_sorted(game->stack_a, game->tail_a) == 1)
+	if (check_if_sorted(game->stack_a) == 1)
 		return ;
 	first = game->stack_a->number;
 	second = game->stack_a->next->number;

@@ -6,7 +6,7 @@
 /*   By: katherine <katherine@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/21 12:20:39 by katherine     #+#    #+#                 */
-/*   Updated: 2021/06/26 13:31:07 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/26 13:39:11 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	push_back_to_a(t_game *game, int total)
 {
-	int		max_pos;
 	t_final	*final;
 
 	final = (t_final *)ft_calloc(1, sizeof(t_final));
@@ -24,7 +23,7 @@ void	push_back_to_a(t_game *game, int total)
 	free(final);
 }
 
-void	push_chunks_to_b(t_game *game, t_info *info, int total, int max)
+void	push_chunks_to_b(t_game *game, t_info *info, int total)
 {
 	t_stack	*ptr;
 
@@ -76,7 +75,7 @@ void	medium_big_sort(t_game *game)
 	get_min_max(game->stack_a, &min, &max, game->size_a);
 	total = game->size_a;
 	while (game->stack_a)
-		push_chunks_to_b(game, info, total, max);
+		push_chunks_to_b(game, info, total);
 	while (game->stack_b)
 		push_back_to_a(game, total);
 	free(info);

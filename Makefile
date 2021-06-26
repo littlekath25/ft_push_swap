@@ -6,14 +6,14 @@
 #    By: kfu <kfu@student.codam.nl>                   +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/14 23:09:58 by kfu           #+#    #+#                  #
-#    Updated: 2021/06/26 11:02:13 by katherine     ########   odam.nl          #
+#    Updated: 2021/06/26 13:38:46 by katherine     ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= 	push_swap
 CC		= 	gcc
 RM		=	rm -f
-#CFLAGS	= 	-Wall -Wextra -Werror
+CFLAGS	= 	-Wall -Wextra -Werror
 
 S_SRC	= 	push_swap.c
 S_PATH	=	src/

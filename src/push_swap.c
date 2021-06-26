@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 15:52:36 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/26 13:37:20 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/26 13:42:39 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	push_swap(t_game *game)
 {
-	if (check_if_sorted(game->stack_a, game->tail_a) == 1)
+	if (check_if_sorted(game->stack_a) == 1)
 		exit(0);
 	else if (game->size_a == 2)
 		sa(game);

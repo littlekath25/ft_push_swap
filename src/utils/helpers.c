@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/29 17:15:12 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/26 13:33:16 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/26 13:41:56 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	is_all_digits(char *argv)
 	return ;
 }
 
-int	check_if_sorted(t_stack *stack, t_stack *tail)
+int	check_if_sorted(t_stack *stack)
 {
 	t_stack	*ptr;
 
