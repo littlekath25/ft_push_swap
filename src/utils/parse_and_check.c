@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 16:11:43 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/24 21:02:48 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/26 13:38:24 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,11 @@ void	parse_and_check(char **argv, t_game *game)
 {
 	int		i;
 	int		j;
-	double	digits[game->size_a];
+	double	*digits;
 
 	i = 1;
 	j = 0;
+	digits = (double *)ft_calloc(1, game->size_a);
 	while (argv[i])
 	{
 		is_all_digits(argv[i]);

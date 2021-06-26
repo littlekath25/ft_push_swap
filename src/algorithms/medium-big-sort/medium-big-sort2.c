@@ -6,7 +6,7 @@
 /*   By: katherine <katherine@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/22 15:51:35 by katherine     #+#    #+#                 */
-/*   Updated: 2021/06/26 13:23:34 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/26 13:37:06 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,8 @@ void	get_max(t_game *game, t_final *final)
 	}
 }
 
-void	search_first_second(t_stack *ptr, t_info *info, t_game *game)
+void	search_first_second(t_stack *ptr, t_info *info, t_game *game, int i)
 {
-	int	i;
-
-	i = 2;
 	ptr = game->stack_a;
 	if (ptr == NULL)
 		return ;
@@ -93,9 +90,12 @@ void	search_first_second(t_stack *ptr, t_info *info, t_game *game)
 
 int	get_first_second(t_stack *ptr, t_info *info, t_game *game)
 {
+	int	i;
+
+	i = 2;
 	info->first_pos = -1;
 	info->second_pos = -1;
-	search_first_second(ptr, info, game);
+	search_first_second(ptr, info, game, i);
 	if (info->first_pos == -1 && info->second_pos == -1)
 		return (0);
 	return (1);

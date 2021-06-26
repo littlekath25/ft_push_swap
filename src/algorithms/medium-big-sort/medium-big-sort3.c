@@ -6,7 +6,7 @@
 /*   By: katherine <katherine@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/24 22:10:08 by katherine     #+#    #+#                 */
-/*   Updated: 2021/06/24 22:21:44 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/26 13:35:53 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,21 @@ void	push_min_to_top(t_info *info, int total, t_game *game)
 	}
 }
 
+static void	set_steps_and_dir(t_final *final, int total, \
+int *steps, int *rotate_dir)
+{
+	if (final->max_pos > (total / 2))
+	{
+		*rotate_dir = 0;
+		*steps = (total + 1) - final->max_pos;
+	}
+	else
+	{
+		*rotate_dir = 1;
+		*steps = final->max_pos - 1;
+	}
+}
+
 void	push_max_to_top(t_final *final, int total, t_game *game)
 {
 	int	i;
@@ -63,16 +78,7 @@ void	push_max_to_top(t_final *final, int total, t_game *game)
 	else
 	{
 		i = 0;
-		if (final->max_pos > (total / 2))
-		{
-			rotate_dir = 0;
-			steps = (total + 1) - final->max_pos;
-		}
-		else
-		{
-			rotate_dir = 1;
-			steps = final->max_pos - 1;
-		}
+		set_steps_and_dir(final, total, &steps, &rotate_dir);
 		while (i < steps)
 		{
 			if (rotate_dir == 1)

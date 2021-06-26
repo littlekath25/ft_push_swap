@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 16:01:19 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/26 13:24:19 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/26 13:32:05 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,8 @@ void	rrr(t_game *game);
 
 // ACTIONS
 void	ps_swap(int *a, int *b);
-void	ps_push(t_stack **src, t_stack **s_tail, t_stack **dest, t_stack **d_tail);
+void	ps_push(t_stack **src, t_stack **s_tail, \
+t_stack **dest, t_stack **d_tail);
 void	ps_rotate(t_stack **stack, t_stack **tail);
 void	ps_rev_rotate(t_stack **stack, t_stack **tail);
 
