@@ -6,7 +6,7 @@
 /*   By: katherine <katherine@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/22 15:51:35 by katherine     #+#    #+#                 */
-/*   Updated: 2021/06/26 11:35:01 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/26 13:23:34 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,8 +101,8 @@ int	get_first_second(t_stack *ptr, t_info *info, t_game *game)
 	return (1);
 }
 
-void	calculate_chunk(t_info *info, int max)
+void	calculate_chunk(t_info *info, int min)
 {
-	info->chunk = (max / info->num_of_chunks) * info->chunk_number;
+	info->chunk = min + (info->chunk_size * info->chunk_number);
 	info->chunk_number++;
 }

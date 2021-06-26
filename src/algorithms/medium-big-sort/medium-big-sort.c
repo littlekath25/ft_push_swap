@@ -6,7 +6,7 @@
 /*   By: katherine <katherine@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/21 12:20:39 by katherine     #+#    #+#                 */
-/*   Updated: 2021/06/26 11:34:37 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/26 13:31:07 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	push_chunks_to_b(t_game *game, t_info *info, int total, int max)
 	}
 	else
 	{
-		calculate_chunk(info, max);
+		calculate_chunk(info, game->min);
 		while (get_first_second(ptr, info, game))
 		{
 			push_min_to_top(info, total, game);
@@ -48,14 +48,19 @@ void	push_chunks_to_b(t_game *game, t_info *info, int total, int max)
 	}
 }
 
-void	set_num_of_chunks(t_game *game, t_info *info)
+void	set_chunks(t_game *game, t_info *info)
 {
+	int	num_of_chunks;
+
+	get_min_max(game->stack_a, &game->min, &game->max, game->size_a);
 	if (game->size_a < 301)
-		info->num_of_chunks = 5;
+		num_of_chunks = 5;
 	else if (game->size_a < 401)
-		info->num_of_chunks = 15;
+		num_of_chunks = 7;
 	else
-		info->num_of_chunks = 11;
+		num_of_chunks = 11;
+	info->num_of_chunks = num_of_chunks;
+	info->chunk_size = (game->max - game->min) / num_of_chunks;
 }
 
 void	medium_big_sort(t_game *game)
@@ -67,7 +72,7 @@ void	medium_big_sort(t_game *game)
 
 	info = (t_info *)ft_calloc(1, sizeof(t_info));
 	init_info(info);
-	set_num_of_chunks(game, info);
+	set_chunks(game, info);
 	get_min_max(game->stack_a, &min, &max, game->size_a);
 	total = game->size_a;
 	while (game->stack_a)
