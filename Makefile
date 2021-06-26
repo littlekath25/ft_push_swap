@@ -6,7 +6,7 @@
 #    By: kfu <kfu@student.codam.nl>                   +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/14 23:09:58 by kfu           #+#    #+#                  #
-#    Updated: 2021/06/24 22:12:52 by katherine     ########   odam.nl          #
+#    Updated: 2021/06/26 11:02:13 by katherine     ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,10 +50,10 @@ all: $(NAME)
 
 $(NAME): $(OBJ_FILES)
 	cd libft && make
-	$(CC) $(OBJ_FILES) -Llibft -lft -o $(NAME) -fsanitize=address
+	$(CC) $(OBJ_FILES) -Llibft -lft -o $(NAME) -g -fsanitize=address
 
 %.o: %.c
-		$(CC) -c $(CFLAGS) -o $@ $< -I includes/ -fsanitize=address
+		$(CC) -c $(CFLAGS) -o $@ $< -I includes/ -g -fsanitize=address
 
 clean:
 	$(RM) $(OBJ_FILES)

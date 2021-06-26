@@ -6,7 +6,7 @@
 /*   By: katherine <katherine@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/21 12:20:39 by katherine     #+#    #+#                 */
-/*   Updated: 2021/06/24 22:44:26 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/26 11:34:37 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,12 @@ void	push_chunks_to_b(t_game *game, t_info *info, int total, int max)
 
 void	set_num_of_chunks(t_game *game, t_info *info)
 {
-	if (game->size_a < 101)
+	if (game->size_a < 301)
 		info->num_of_chunks = 5;
-	else if (game->size_a < 201)
-		info->num_of_chunks = 10;
-	else if (game->size_a < 400)
+	else if (game->size_a < 401)
 		info->num_of_chunks = 15;
 	else
-		info->num_of_chunks = 20;
+		info->num_of_chunks = 11;
 }
 
 void	medium_big_sort(t_game *game)
