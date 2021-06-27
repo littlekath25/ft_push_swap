@@ -6,7 +6,7 @@
 /*   By: katherine <katherine@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/26 22:40:25 by katherine     #+#    #+#                 */
-/*   Updated: 2021/06/27 14:49:38 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/27 15:32:35 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	main(int argc, char **argv)
 			execute_operation(game, operation);
 			free(operation);
 		}
-		if (check_if_sorted(game->stack_a) == 1)
+		if (game->stack_b == NULL && check_if_sorted(game->stack_a) == 1)
 			write(1, "OK\n", 3);
 		else
 			write(1, "KO\n", 3);
