@@ -6,11 +6,17 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/29 17:15:12 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/26 13:41:56 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/27 15:52:06 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	error_and_exit(void)
+{
+	write(2, "Error\n", 6);
+	exit(0);
+}
 
 void	is_all_digits(char *argv)
 {

@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 15:52:36 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/27 14:49:51 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/27 15:50:23 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ int	main(int argc, char **argv)
 		parse_and_check(argv, game);
 		push_swap(game);
 	}
+	free(game);
 	exit (0);
 }

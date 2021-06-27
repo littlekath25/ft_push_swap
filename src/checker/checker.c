@@ -6,7 +6,7 @@
 /*   By: katherine <katherine@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/26 22:40:25 by katherine     #+#    #+#                 */
-/*   Updated: 2021/06/27 15:32:35 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/27 15:53:39 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void	execute_operation(t_game *game, char *operation)
 		rrb(game);
 	if (!(ft_strcmp(operation, "rrr")))
 		rrr(game);
+	else
+		error_and_exit();
 }
 
 int	main(int argc, char **argv)
@@ -60,5 +62,6 @@ int	main(int argc, char **argv)
 		else
 			write(1, "KO\n", 3);
 	}
+	free(game);
 	exit (0);
 }
