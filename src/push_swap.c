@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 15:52:36 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/26 13:42:39 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/27 12:40:31 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int	main(int argc, char **argv)
 	{
 		game = (t_game *)ft_calloc(1, sizeof(t_game));
 		init_game(game, argc);
+		game->print_operations = 1;
 		parse_and_check(argv, game);
 		push_swap(game);
 	}

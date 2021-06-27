@@ -6,7 +6,7 @@
 /*   By: katherine <katherine@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/24 20:57:34 by katherine     #+#    #+#                 */
-/*   Updated: 2021/06/24 20:57:53 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/27 12:41:22 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	init_game(t_game *game, int argc)
 {
+	game->print_operations = 0;
 	game->operations = 0;
 	game->size_a = argc - 1;
 	game->size_b = 0;

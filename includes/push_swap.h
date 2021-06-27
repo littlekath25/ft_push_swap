@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 16:01:19 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/26 13:42:21 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/27 12:38:36 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,11 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
-# include "../libft/libft.h"
+# include "libft.h"
+# include "get_next_line.h"
 # include <stdio.h>
+
+# define PRINT_OPERATIONS 1
 
 typedef struct s_stack
 {
@@ -27,6 +30,7 @@ typedef struct s_stack
 
 typedef struct s_game
 {
+	int		print_operations;
 	int		operations;
 	int		min;
 	int		max;
@@ -60,7 +64,10 @@ typedef struct s_final
 	int	direction;
 }	t_final;
 
+void	push_swap(t_game *game);
 void	parse_and_check(char **argv, t_game *game);
+void	check_duplicates(double *stack, int len);
+void	create_stacka(double *digits, t_game *game);
 
 /* UTILS */
 void	error_and_exit(void);

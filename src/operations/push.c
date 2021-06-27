@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/03 14:12:37 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/15 23:22:35 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/27 12:39:19 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	pa(t_game *game)
 	ps_push(&game->stack_b, &game->tail_b, &game->stack_a, &game->tail_a);
 	game->size_a++;
 	game->size_b--;
-	write(1, "pa\n", 3);
+	if (game->print_operations)
+		write(1, "pa\n", 3);
 	if (game->size_b == 0)
 	{
 		game->stack_b = NULL;
@@ -40,6 +41,7 @@ void	pb(t_game *game)
 		game->stack_a = NULL;
 		game->tail_a = NULL;
 	}
-	write(1, "pb\n", 3);
+	if (game->print_operations)
+		write(1, "pb\n", 3);
 	game->operations++;
 }

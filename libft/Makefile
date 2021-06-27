@@ -6,13 +6,13 @@
 #    By: kfu <kfu@student.codam.nl>                   +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/14 23:09:58 by kfu           #+#    #+#                  #
-#    Updated: 2021/05/05 15:29:57 by kfu           ########   odam.nl          #
+#    Updated: 2021/06/27 13:03:00 by kfu           ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = 		libft.a
 AR =		ar
-H_FILES = 	libft.h
+H_FILES = 	../includes/libft.h
 CC = 		gcc
 RM =		rm -f
 CFLAGS = 	-Wall -Wextra -Werror
@@ -37,7 +37,7 @@ $(NAME): $(O_FILES)
 	$(AR) rcs $(NAME) $(O_FILES)
 
 %.o: %.c $(H_FILES)
-	$(CC) -c $(CFLAGS) -o $@ $<
+	$(CC) -c $(CFLAGS) -o $@ $< -I ../includes/
 
 clean:
 	$(RM) $(O_FILES)

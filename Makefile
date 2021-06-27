@@ -6,11 +6,12 @@
 #    By: kfu <kfu@student.codam.nl>                   +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/14 23:09:58 by kfu           #+#    #+#                  #
-#    Updated: 2021/06/26 13:38:46 by katherine     ########   odam.nl          #
+#    Updated: 2021/06/27 13:11:20 by katherine     ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= 	push_swap
+CHECKER =	checker
+PUSH	= 	push_swap 
 CC		= 	gcc
 RM		=	rm -f
 CFLAGS	= 	-Wall -Wextra -Werror
@@ -40,25 +41,35 @@ U_SRC	= 	error.c\
 			parse_and_check.c\
 			stack_functions.c\
 			helpers.c\
-			init.c
+			init.c\
+			get_next_line.c
 U_PATH	=	src/utils/
 U_OBJ	=	$(U_SRC:%.c=$(U_PATH)%.o)
 
+C_SRC	= 	checker.c
+C_PATH	=	src/checker/
+C_OBJ	=	$(C_SRC:%.c=$(C_PATH)%.o)
+
 OBJ_FILES = $(S_OBJ) $(A_OBJ) $(O_OBJ) $(U_OBJ)
+CHECKER_FILES = $(C_OBJ) $(U_OBJ) $(O_OBJ)
 
-all: $(NAME)
+all: $(PUSH) $(CHECKER)
 
-$(NAME): $(OBJ_FILES)
-	cd libft && make
-	$(CC) $(OBJ_FILES) -Llibft -lft -o $(NAME) -g -fsanitize=address
+$(PUSH): $(OBJ_FILES)
+	make -C libft
+	$(CC) $(OBJ_FILES) -Llibft -lft -o $(PUSH)
+
+ $(CHECKER) : $(CHECKER_FILES)
+	$(CC) $(CHECKER_FILES) -Llibft -lft -o $(CHECKER)
 
 %.o: %.c
-		$(CC) -c $(CFLAGS) -o $@ $< -I includes/ -g -fsanitize=address
+		$(CC) -c $(CFLAGS) -o $@ $< -I includes/
 
 clean:
-	$(RM) $(OBJ_FILES)
+	$(RM) $(OBJ_FILES) $(C_OBJ)
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(PUSH) $(CHECKER)
+	make -C libft fclean
 
 re: fclean all

@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 16:11:43 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/26 13:45:59 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/26 22:54:17 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	create_stacka(double *digits, t_game *game)
 	}
 }
 
-static void	check_duplicates(double *stack, int len)
+void	check_duplicates(double *stack, int len)
 {
 	int	i;
 	int	j;
