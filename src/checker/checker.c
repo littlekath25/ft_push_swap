@@ -6,7 +6,7 @@
 /*   By: katherine <katherine@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/26 22:40:25 by katherine     #+#    #+#                 */
-/*   Updated: 2021/06/27 15:53:39 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/28 10:26:25 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,25 @@ void	execute_operation(t_game *game, char *operation)
 {
 	if (!(ft_strcmp(operation, "sa")))
 		sa(game);
-	if (!(ft_strcmp(operation, "sb")))
+	else if (!(ft_strcmp(operation, "sb")))
 		sb(game);
-	if (!(ft_strcmp(operation, "ss")))
+	else if (!(ft_strcmp(operation, "ss")))
 		ss(game);
-	if (!(ft_strcmp(operation, "pa")))
+	else if (!(ft_strcmp(operation, "pa")))
 		pa(game);
-	if (!(ft_strcmp(operation, "pb")))
+	else if (!(ft_strcmp(operation, "pb")))
 		pb(game);
-	if (!(ft_strcmp(operation, "ra")))
+	else if (!(ft_strcmp(operation, "ra")))
 		ra(game);
-	if (!(ft_strcmp(operation, "rb")))
+	else if (!(ft_strcmp(operation, "rb")))
 		rb(game);
-	if (!(ft_strcmp(operation, "rr")))
+	else if (!(ft_strcmp(operation, "rr")))
 		rr(game);
-	if (!(ft_strcmp(operation, "rra")))
+	else if (!(ft_strcmp(operation, "rra")))
 		rra(game);
-	if (!(ft_strcmp(operation, "rrb")))
+	else if (!(ft_strcmp(operation, "rrb")))
 		rrb(game);
-	if (!(ft_strcmp(operation, "rrr")))
+	else if (!(ft_strcmp(operation, "rrr")))
 		rrr(game);
 	else
 		error_and_exit();

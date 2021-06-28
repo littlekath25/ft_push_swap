@@ -6,7 +6,7 @@
 #    By: kfu <kfu@student.codam.nl>                   +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/14 23:09:58 by kfu           #+#    #+#                  #
-#    Updated: 2021/06/27 15:52:56 by katherine     ########   odam.nl          #
+#    Updated: 2021/06/28 10:23:58 by katherine     ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CHECKER =	checker
 PUSH	= 	push_swap
 CC		= 	gcc
 RM		=	rm -f
-CFLAGS	= 	-Wall -Wextra -Werror
+# CFLAGS	= 	-Wall -Wextra -Werror
 
 S_SRC	= 	push_swap.c
 S_PATH	=	src/
