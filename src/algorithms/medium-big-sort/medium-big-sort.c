@@ -6,7 +6,7 @@
 /*   By: katherine <katherine@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/21 12:20:39 by katherine     #+#    #+#                 */
-/*   Updated: 2021/06/26 13:39:11 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/28 14:36:40 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	push_back_to_a(t_game *game, int total)
 	t_final	*final;
 
 	final = (t_final *)ft_calloc(1, sizeof(t_final));
+	if (!final)
+		error_and_exit();
 	total = game->size_b;
 	get_max(game, final);
 	push_max_to_top(final, total, game);
@@ -70,6 +72,8 @@ void	medium_big_sort(t_game *game)
 	t_info	*info;
 
 	info = (t_info *)ft_calloc(1, sizeof(t_info));
+	if (!info)
+		error_and_exit();
 	init_info(info);
 	set_chunks(game, info);
 	get_min_max(game->stack_a, &min, &max, game->size_a);

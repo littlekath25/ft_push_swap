@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 16:11:43 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/28 10:29:30 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/28 14:39:18 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ void	parse_and_check(char **argv, t_game *game)
 	i = 1;
 	j = 0;
 	digits = (double *)ft_calloc(sizeof(double), game->size_a);
+	if (!digits)
+		error_and_exit();
 	while (argv[i])
 	{
 		if (!*argv[i])

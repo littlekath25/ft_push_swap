@@ -6,7 +6,7 @@
 /*   By: katherine <katherine@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/26 22:40:25 by katherine     #+#    #+#                 */
-/*   Updated: 2021/06/28 10:26:25 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/28 14:37:09 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ int	main(int argc, char **argv)
 	char	*operation;
 
 	game = (t_game *)ft_calloc(1, sizeof(t_game));
+	if (!game)
+		error_and_exit();
 	init_game(game, argc);
 	if (argc == 2)
 		is_all_digits(argv[1]);

@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/05/23 15:52:36 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/27 15:50:23 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/28 14:36:12 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,14 @@ int	main(int argc, char **argv)
 {
 	t_game	*game;
 
+	game = (t_game *)ft_calloc(1, sizeof(t_game));
+	if (!game)
+		error_and_exit();
+	init_game(game, argc);
 	if (argc == 2)
 		is_all_digits(argv[1]);
 	if (argc > 2)
 	{
-		game = (t_game *)ft_calloc(1, sizeof(t_game));
-		init_game(game, argc);
 		game->print_operations = 1;
 		parse_and_check(argv, game);
 		push_swap(game);
