@@ -6,13 +6,13 @@
 #    By: kfu <kfu@student.codam.nl>                   +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/14 23:09:58 by kfu           #+#    #+#                  #
-#    Updated: 2021/06/28 10:33:46 by katherine     ########   odam.nl          #
+#    Updated: 2021/06/28 15:29:11 by katherine     ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 CHECKER =	checker
 PUSH	= 	push_swap
-CC		= 	gcc
+CC		= 	gcc -g -fsanitize=address
 RM		=	rm -f
 CFLAGS	= 	-Wall -Wextra -Werror
 

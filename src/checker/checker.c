@@ -6,7 +6,7 @@
 /*   By: katherine <katherine@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/26 22:40:25 by katherine     #+#    #+#                 */
-/*   Updated: 2021/06/28 14:37:09 by katherine     ########   odam.nl         */
+/*   Updated: 2021/06/28 15:43:03 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,5 @@ int	main(int argc, char **argv)
 		else
 			write(1, "KO\n", 3);
 	}
-	free(game);
 	exit (0);
 }

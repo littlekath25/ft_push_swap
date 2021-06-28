@@ -6,7 +6,7 @@
 /*   By: kfu <kfu@student.codam.nl>                   +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/06/03 14:10:23 by kfu           #+#    #+#                 */
-/*   Updated: 2021/06/11 17:04:12 by kfu           ########   odam.nl         */
+/*   Updated: 2021/06/28 15:41:08 by katherine     ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,15 @@ t_stack **dest, t_stack **d_tail)
 	t_stack	*tmp;
 
 	tmp = *src;
-	*src = (*src)->next;
-	(*s_tail)->next = *src;
 	if ((*src)->next == NULL)
 	{
 		*src = NULL;
 		*s_tail = NULL;
-		return ;
+	}
+	else
+	{
+		*src = (*src)->next;
+		(*s_tail)->next = *src;
 	}
 	if (*dest == NULL)
 	{
